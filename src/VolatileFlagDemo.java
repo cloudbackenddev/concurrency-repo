@@ -1,6 +1,6 @@
 public class VolatileFlagDemo {
     // volatile ensures that changes made by one thread are visible to others
-    private static volatile boolean running = true;
+    private static volatile  boolean running = true;
 
     public static void main(String[] args) throws InterruptedException {
         Thread worker = new Thread(() -> {

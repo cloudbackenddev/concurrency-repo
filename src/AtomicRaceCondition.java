@@ -1,17 +1,16 @@
-public class SynchronizedRaceCondition {
-    private int count = 0;
+import java.util.concurrent.atomic.AtomicInteger;
 
-    public  void increment() {
-        synchronized(this) {
-            count++;
-        }
+public class AtomicRaceCondition {
+    AtomicInteger count = new AtomicInteger(0);
 
+    public void increment() {
+        count.incrementAndGet();
     }
 
-    public int getCount() { return count; }
+    public int getCount() { return count.get(); }
 
     public static void main(String[] args) throws InterruptedException {
-        SynchronizedRaceCondition counter = new SynchronizedRaceCondition();
+        AtomicRaceCondition counter = new AtomicRaceCondition();
 
         Thread t1 = new Thread(() -> {
             for (int i = 0; i < 1_000; i++) counter.increment();

@@ -3,13 +3,15 @@
 public class SimpleThread {
     public static void main(String[] args) {
         // 1. Defining the task
-        Runnable task = () -> {
+     /*   Runnable task = () -> {
             String threadName = Thread.currentThread().getName();
             System.out.println("Hello from " + threadName);
-        };
+        };*/
 
         // 2. Creating the thread (The Worker)
-        Thread thread = new Thread(task);
+        // Thread thread = new Thread(task);
+
+        Thread thread = new Thread(new MyTask());
 
         // 3. Starting the thread
         thread.start();

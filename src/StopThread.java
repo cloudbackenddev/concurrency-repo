@@ -8,7 +8,7 @@ public class StopThread {
                 } catch (InterruptedException e) {
                     System.out.println("I was told to stop!");
                     // Important: Re-interrupt the thread locally if you need to propagate the state
-                    Thread.currentThread().interrupt();
+                   // Thread.currentThread().interrupt();
                     break; // Exit the loop
                 }
             }
@@ -16,7 +16,7 @@ public class StopThread {
         Thread thread = new Thread(task);
         thread.start();
         try {
-            Thread.sleep(100);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
